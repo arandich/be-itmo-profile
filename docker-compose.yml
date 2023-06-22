@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  itmo-profile:
+    build:
+      context: .
+    restart: always
+    container_name: itmo-profile
+    environment:
+      - PG_HOST=*host*
+      - PG_PORT=*port*
+      - PG_USER=*user*
+      - PG_PASSWORD=*pass*
+      - PG_DBNAME=*db_name*
+      - GPT_TOKEN=*Your token*
+    ports:
+      - '80:80'
+    networks:
+      - itmo_network
+networks:
+  itmo_network:
+    external: true
